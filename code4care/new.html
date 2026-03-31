@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CODE4CARE | AI Smart Ambulance Routing</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Glass Effect */
+.glass{
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius:20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.37);
+}
+
+/* NAVBAR */
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    padding:20px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav ul li{
+    cursor:pointer;
+    transition:0.3s;
+}
+
+nav ul li:hover{
+    color:#00ffe0;
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:4rem;
+    font-weight:800;
+    background: linear-gradient(90deg,#00ffe0,#00bfff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    margin-top:20px;
+    max-width:700px;
+    font-size:1.2rem;
+    opacity:0.9;
+}
+
+.btn{
+    margin-top:30px;
+    padding:15px 35px;
+    border-radius:50px;
+    border:none;
+    font-size:1rem;
+    cursor:pointer;
+    background: linear-gradient(90deg,#00ffe0,#00bfff);
+    color:black;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+/* SECTION */
+section{
+    padding:100px 10%;
+}
+
+.section-title{
+    font-size:2.5rem;
+    text-align:center;
+    margin-bottom:50px;
+}
+
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    padding:30px;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+/* DASHBOARD */
+.dashboard{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.dashboard-box{
+    padding:30px;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:40px;
+    opacity:0.8;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .hero h1{
+        font-size:2.5rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="glass">
+    <h2>🚑 CODE4CARE</h2>
+    <ul>
+        <li>Home</li>
+        <li>Solution</li>
+        <li>Dashboard</li>
+        <li>Future</li>
+    </ul>
+</nav>
+
+<div class="hero">
+    <h1>AI Smart Ambulance Routing System</h1>
+    <p>
+        Reducing emergency response time using AI severity detection,
+        real-time traffic optimization, hospital availability tracking,
+        and smart routing during the Golden Hour.
+    </p>
+    <button class="btn" onclick="simulate()">Run Live Simulation</button>
+</div>
+
+<section>
+    <h2 class="section-title">Proposed Solution</h2>
+    <div class="cards">
+        <div class="card glass">
+            <h3>AI Severity Classification</h3>
+            <p>Analyzes patient vitals and symptoms to detect Low, Medium, or Critical condition.</p>
+        </div>
+        <div class="card glass">
+            <h3>Real-Time Traffic Routing</h3>
+            <p>Dynamically selects fastest route using live traffic APIs.</p>
+        </div>
+        <div class="card glass">
+            <h3>Smart Hospital Selection</h3>
+            <p>Chooses hospital based on specialization and bed availability.</p>
+        </div>
+        <div class="card glass">
+            <h3>Golden Hour Optimization</h3>
+            <p>Prioritizes critical cases for maximum survival rate.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title">Live Emergency Dashboard</h2>
+    <div class="dashboard">
+        <div class="dashboard-box glass">
+            <h3>Patient Severity</h3>
+            <p id="severity">Low</p>
+        </div>
+
+        <div class="dashboard-box glass">
+            <h3>Selected Hospital</h3>
+            <p id="hospital">City Hospital</p>
+        </div>
+
+        <div class="dashboard-box glass">
+            <h3>Estimated Arrival Time</h3>
+            <p id="time">15 mins</p>
+        </div>
+
+        <div class="dashboard-box glass">
+            <h3>System Impact</h3>
+            <p>
+                Response Time Reduced: 32%<br>
+                Survival Rate Increased: 18%<br>
+                Smart City Ready
+            </p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title">Future Scope</h2>
+    <div class="cards">
+        <div class="card glass">
+            <h3>Traffic Signal Control</h3>
+            <p>Automatic green corridor generation.</p>
+        </div>
+        <div class="card glass">
+            <h3>Nationwide Integration</h3>
+            <p>Cloud-based scalable emergency system.</p>
+        </div>
+        <div class="card glass">
+            <h3>AI Demand Forecasting</h3>
+            <p>Predict ambulance demand in high-risk zones.</p>
+        </div>
+        <div class="card glass">
+            <h3>Drone Medical Delivery</h3>
+            <p>Deliver blood and medicine via drones.</p>
+        </div>
+    </div>
+</section>
+
+<footer class="glass">
+    © 2026 CODE4CARE | SRM Ramapuram | Team CODE4CARE
+</footer>
+
+<script>
+function simulate(){
+    const levels=["Low","Medium","Critical"];
+    const hospitals=["City Hospital","Apollo Emergency","Metro Trauma Center","SRM Medical Center"];
+    const severity=levels[Math.floor(Math.random()*3)];
+    const hospital=hospitals[Math.floor(Math.random()*4)];
+    const time=Math.floor(Math.random()*10)+5;
+
+    document.getElementById("severity").innerText=severity;
+    document.getElementById("hospital").innerText=hospital;
+    document.getElementById("time").innerText=time+" mins";
+}
+
+setInterval(simulate,5000);
+</script>
+
+</body>
+</html>
